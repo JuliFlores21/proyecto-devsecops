@@ -15,9 +15,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
+          cache: 'npm' # Ayuda a que el pipeline sea más rápido en futuras ejecuciones
 
       - name: Instalar dependencias
-        run: npm install
+        run: npm ci # Usa 'ci' para entornos de integración continua
 
       - name: Ejecutar Pruebas (Test)
         run: npm test
