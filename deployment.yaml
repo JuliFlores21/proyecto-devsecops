@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-devsecops
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: api-web
+  template:
+    metadata:
+      labels:
+        app: api-web
+    spec:
+      containers:
+      - name: node-app
+        image: api-devsecops:latest
+        ports:
+        - containerPort: 3000
